@@ -51,13 +51,13 @@
 
 #endif
 
-#if defined(_WIN32) || defined(__APPLE__) || defined(__ANDROID__)
+// #if defined(_WIN32) || defined(__APPLE__) || defined(__ANDROID__)
 #include <unordered_map>
 #include <unordered_set>
-#else
-#include <tr1/unordered_map>
-#include <tr1/unordered_set>
-#endif
+// #else
+// #include <tr1/unordered_map>
+// #include <tr1/unordered_set>
+// #endif
 
 #if !defined(_WIN64) && defined(_WIN32)
 #define WINDOWS_32BIT
@@ -149,13 +149,13 @@ typedef const char* const_char_ptr;
 struct null_data_t;
 typedef null_data_t* null_ptr_t;
 
-#if defined(_WIN32) || defined(__APPLE__) || defined(__ANDROID__)
+// #if defined(_WIN32) || defined(__APPLE__) || defined(__ANDROID__)
 #define unordered_map_t std::unordered_map
 #define unordered_set_t std::unordered_set
-#else
-#define unordered_map_t std::tr1::unordered_map
-#define unordered_set_t std::tr1::unordered_set
-#endif
+// #else
+// #define unordered_map_t std::tr1::unordered_map
+// #define unordered_set_t std::tr1::unordered_set
+// #endif
 
 #ifndef _countof
 #define _countof(x) (sizeof(x)/sizeof((x)[0]))

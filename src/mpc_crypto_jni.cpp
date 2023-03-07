@@ -28,7 +28,7 @@
 #include "mpc_crypto_jni.h"
 #include "jni_helpers.h"
 #include "mpc_crypto.h"
-#include "crypto.h"
+#include "cryptoB.h"
 
 static jclass jclass_IntRef = nullptr;
 static jfieldID jfield_IntRef_value = nullptr;

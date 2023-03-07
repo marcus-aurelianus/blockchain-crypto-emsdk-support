@@ -22,7 +22,7 @@
  */
 
 #include "precompiled.h"
-#include "crypto.h"
+#include "cryptoB.h"
 #include "mpc_crypto_context.h"
 
 error_t mpc_crypto_context_t::get_share(mpc_crypto_share_t*& share) const

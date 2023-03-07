@@ -22,7 +22,7 @@
  */
 
 #include "precompiled.h"
-#include "crypto.h"
+#include "cryptoB.h"
 #include "ecc_backup.h"
 
 

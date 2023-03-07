@@ -23,7 +23,7 @@
 
 #include "precompiled.h"
 #include "ub_convert.h"
-#include "crypto.h"
+#include "cryptoB.h"
 
 namespace crypto {
 

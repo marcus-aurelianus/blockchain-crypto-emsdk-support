@@ -73,13 +73,13 @@ extern "C"
 #include <sstream>
 #include <ctime>
 
-#if defined(_WIN32) || defined(__APPLE__) || defined(__ANDROID__)
+// #if defined(_WIN32) || defined(__APPLE__) || defined(__ANDROID__)
 #include <unordered_map>
 #include <unordered_set>
-#else
-#include <tr1/unordered_map>
-#include <tr1/unordered_set>
-#endif
+// #else
+// #include <tr1/unordered_map>
+// #include <tr1/unordered_set>
+// #endif
 
 #ifdef _WIN32
 #define WIN32_LEAN_AND_MEAN

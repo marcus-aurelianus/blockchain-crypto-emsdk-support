@@ -23,7 +23,7 @@
 
 #pragma once
 
-#include "crypto.h"
+#include "cryptoB.h"
 
 namespace crypto {
   

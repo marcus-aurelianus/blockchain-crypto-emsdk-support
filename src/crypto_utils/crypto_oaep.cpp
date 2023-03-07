@@ -23,7 +23,7 @@
 
 #include "precompiled.h"
 #include "ub_common.h"
-#include "crypto.h"
+#include "cryptoB.h"
 
 /*
  * Written by Ulf Moeller. This software is distributed on an "AS IS" basis,

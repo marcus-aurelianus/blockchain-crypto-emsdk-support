@@ -22,7 +22,7 @@
  */
 
 #pragma once
-#include "crypto.h"
+#include "cryptoB.h"
 
 #if defined(INTEL_X64) || defined(__aarch64__)
 #define HAS_AESNI_SUPPORT

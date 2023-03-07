@@ -24,7 +24,7 @@
 #include "precompiled.h"
 #include "ub_common.h"
 #include "ub_buf256.h"
-#include "crypto.h"
+#include "cryptoB.h"
 
 buf256_t& buf256_t::operator = (mem_t src)
 {

@@ -31,7 +31,6 @@ COMMON_CPPFLAGS = \
 	-Wno-unused \
 	-Wno-switch \
 	-Wno-switch-enum \
-	-Werror \
 	-mpclmul \
 	-std=c++0x
 
@@ -50,7 +49,7 @@ LIB_ASMSRC = \
 		 
 LIB_OBJ = \
 	$(LIB_CPPSRC:.cpp=.o) \
-	$(LIB_ASMSRC:.s=.o) 
+	$(LIB_ASMSRC:.asm=.o) 
 
 LIB_HEADERS = $(wildcard src/*.h) \
 	$(wildcard src/utils/*.h) \
@@ -63,9 +62,9 @@ LIB_INCLUDES = \
 	-I ${JAVA_HOME}/include/linux \
 	-I src/utils \
 	-I src/crypto_utils \
-	-I src/mpc_protocols
+	-I src/mpc_protocols \
+	-I lib/openssl/include  
 	
-
 LIB_CPPFLAGS = \
 	$(COMMON_CPPFLAGS) \
 	-DMPC_CRYPTO_EXPORTS \
@@ -74,10 +73,12 @@ LIB_CPPFLAGS = \
 
 LIB_LDFLAGS = \
 	$(COMMON_LDFLAGS) \
+	-L lib/openssl  \
 	-Wl,-z,defs \
 	-Wl,-rpath,\'\$$ORIGIN\' \
 	-shared \
 	-rdynamic \
+	-lssl \
 	-lcrypto \
 	-lpthread
 
@@ -100,7 +101,7 @@ src/%.o: src/%.cpp src/utils/precompiled.h.gch
 	$(CXX) $(LIB_CPPFLAGS) $(LIB_INCLUDES) -o $@ -c $<
 
 libmpc_crypto.so: $(LIB_OBJ)
-	$(CXX) -o $@ $^ $(LIB_LDFLAGS)
+	$(CXX) $(SSL_INCLUDE) -o $@ $^ $(LIB_LDFLAGS)
 
 #----------------------- TEST --------------------------	
 	

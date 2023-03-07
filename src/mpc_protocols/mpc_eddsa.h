@@ -22,7 +22,7 @@
  */
 
 #pragma once
-#include "crypto.h"
+#include "cryptoB.h"
 #include "mpc_ecc_core.h"
 
 namespace mpc {

@@ -160,11 +160,11 @@ mutex_t::mutex_t()
 #else
   pthread_mutexattr_t attr;
   pthread_mutexattr_init(&attr);
-#ifdef __APPLE__
+// #ifdef __APPLE__
   pthread_mutexattr_settype(&attr, PTHREAD_MUTEX_RECURSIVE);
-#else
-  pthread_mutexattr_settype(&attr, PTHREAD_MUTEX_RECURSIVE_NP);
-#endif
+// #else
+//   pthread_mutexattr_settype(&attr, PTHREAD_MUTEX_RECURSIVE_NP);
+// #endif
   pthread_mutex_init(&os, &attr);
   pthread_mutexattr_destroy(&attr);
 #endif
@@ -246,17 +246,17 @@ void thread_t::join()
 
 uint64_t thread_t::thread_id()
 {
-#ifdef _WIN32
-  return ::GetCurrentThreadId();
-#elif defined(__APPLE__)
-  uint64_t id = 0;
-  pthread_threadid_np(NULL, &id);
-  return id;
-#elif defined(__ANDROID__)
+// #ifdef _WIN32
+//   return ::GetCurrentThreadId();
+// #elif defined(__APPLE__)
+//   uint64_t id = 0;
+//   pthread_threadid_np(NULL, &id);
+//   return id;
+// #elif defined(__ANDROID__)
   return gettid();
-#else
-  return syscall(SYS_gettid);
-#endif
+// #else
+//   return syscall(SYS_gettid);
+// #endif
 }
 
 void thread_t::yield()
